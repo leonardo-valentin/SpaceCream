@@ -1,0 +1,196 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-color: #eff1ff;
+  --bg-ic-type: #feeafa;
+  --bg-title: #cbc0d3;
+  --bg-header: #8e9aaf;
+
+  --idk-color: #4a4e69;
+
+  --title-color: hsla(0, 0%, 100%, 1);
+  --about-color: hsla(274, 84%, 12%, 1);
+  --ic-type-color: hsla(232, 17%, 35%, 1);
+
+  --fonte-principal: "Staatliches", cursive;
+  --fonte-secundaria: "Palanquin", sans-serif;
+
+  --fs-titulo: 4rem;
+  --fs-texto: 2rem;
+
+  font-size: 62.5%;
+}
+
+body {
+  font-family: var(--fonte-principal);
+  background-color: var(--bg-color);
+}
+
+header {
+  background-color: var(--bg-header);
+  height: 300px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  gap: 3.2rem;
+}
+
+header img {
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  max-width: 137px;
+  height: 137px;
+}
+
+header h1 {
+  font-size: 4rem;
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  color: var(--title-color);
+  width: 100%;
+
+  font-size: var(--fs-titulo);
+  font-weight: 400;
+  background-color: var(--bg-title);
+
+  /* color: hsla(274, 17%, 35%, 1); */
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+main {
+  max-width: clamp(32rem, 18rem + 25vh, 100rem);
+  margin: 0 auto;
+}
+
+.text {
+  max-width: 30rem;
+  margin: 2.4rem auto 6rem;
+}
+
+.text p {
+  font-family: var(--fonte-secundaria);
+  font-weight: 400;
+  font-size: var(--fs-texto);
+  line-height: 1.5rem;
+  text-align: center;
+
+  color: var(--about-color);
+}
+
+.content {
+  display: grid;
+  gap: 3.2rem;
+
+  grid-auto-rows: 25rem;
+  grid-template-rows: 25rem 45rem 25rem 45rem;
+
+  padding: 0 1rem 6rem 1rem;
+}
+
+.card {
+  position: relative;
+  transition: all 200ms ease;
+}
+
+.card img {
+  border-radius: 2rem;
+  object-fit: cover;
+  height: 100%;
+
+  animation: downup 700ms 250ms backwards;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  filter: brightness(0.8);
+}
+
+.card:hover .card h2:hover {
+  transform: scale(1.05);
+}
+
+.card h2 {
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
+
+  font-weight: 400;
+  font-size: var(--fs-texto);
+  line-height: 3.4rem;
+
+  letter-spacing: 0.8px;
+
+  color: var(--idk-color);
+
+  background: var(--bg-ic-type);
+  border-radius: 2rem;
+
+  padding: 0 2.4rem;
+
+  animation: updown 700ms 250ms backwards;
+}
+
+header img:hover {
+  animation: spin 500ms infinite;
+}
+
+@keyframes downup {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  100% {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+@keyframes updown {
+  0% {
+    opacity: 0;
+
+    transform: translateY(-15px);
+  }
+
+  100% {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+@keyframes runningright {
+  0% {
+    opacity: 0;
+
+    transform: translateX(-50px);
+  }
+
+  100% {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(360deg);
+  }
+
+  100% {
+    transform: rotate(0);
+  }
+}
