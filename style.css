@@ -32,7 +32,7 @@ body {
 
 header {
   background-color: var(--bg-header);
-  height: 300px;
+  min-height: 290px;
 
   display: flex;
   flex-direction: column;
@@ -41,9 +41,11 @@ header {
 
   text-align: center;
   gap: 3.2rem;
+  margin-bottom: 6rem;
 }
 
 header img {
+  margin-top: 3.2rem;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   max-width: 137px;
   height: 137px;
@@ -51,6 +53,7 @@ header img {
 
 header h1 {
   font-size: 4rem;
+  padding: 0.8rem 0;
   text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
   color: var(--title-color);
   width: 100%;
@@ -68,16 +71,24 @@ img {
 }
 
 main {
-  max-width: clamp(32rem, 18rem + 25vh, 100rem);
+  width: 100%;
   margin: 0 auto;
+
+  display: flex;
+  justify-content: center;
+  padding: 0 2rem 6rem 2rem;
 }
 
 .text {
-  max-width: 30rem;
-  margin: 2.4rem auto 6rem;
+  padding-top: 1.5rem;
+  width: 100%;
+  background-color: var(--bg-color);
 }
 
 .text p {
+  max-width: 30rem;
+  margin: 0 auto;
+
   font-family: var(--fonte-secundaria);
   font-weight: 400;
   font-size: var(--fs-texto);
@@ -91,10 +102,8 @@ main {
   display: grid;
   gap: 3.2rem;
 
-  grid-auto-rows: 25rem;
   grid-template-rows: 25rem 45rem 25rem 45rem;
-
-  padding: 0 1rem 6rem 1rem;
+  grid-template-columns: minmax(30rem, 35rem);
 }
 
 .card {
@@ -142,6 +151,18 @@ main {
 
 header img:hover {
   animation: spin 500ms infinite;
+}
+
+.desktop {
+  display: none;
+}
+
+.text p:nth-child(2) {
+  display: none;
+}
+
+footer {
+  display: none;
 }
 
 @keyframes downup {
@@ -192,5 +213,162 @@ header img:hover {
 
   100% {
     transform: rotate(0);
+  }
+}
+
+@media (min-width: 768px) {
+  .right {
+    display: flex;
+  }
+
+  header {
+    width: 30%;
+    min-height: 100vh;
+    justify-content: flex-start;
+    padding-top: 3.2rem;
+    margin: 0;
+  }
+
+  header img {
+    margin: 0;
+    max-width: 21.5rem;
+    height: 17rem;
+  }
+
+  .text {
+    padding: 3.2rem 2rem 0;
+    max-width: 27.5rem;
+    background-color: var(--bg-header);
+  }
+
+  .text p:nth-child(1) {
+    display: none;
+  }
+
+  .text p:nth-child(2) {
+    display: block;
+    color: var(--title-color);
+  }
+
+  main {
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+    align-items: center;
+    margin: 0;
+  }
+
+  .content {
+    height: fit-content;
+    padding: 0 1rem 6rem 1rem;
+    align-items: flex-end;
+
+    grid-template-rows: 15rem fit-content(50%);
+
+    grid-template-columns: 22rem 22rem;
+  }
+
+  .card:nth-child(1) {
+    height: 15rem;
+  }
+  .card:nth-child(2) {
+    transform: translateY(20rem);
+
+    height: 35rem;
+  }
+
+  .card:nth-child(2):hover {
+    transform: scale(1.05) translateY(20rem);
+  }
+
+  .card:nth-child(3) {
+    height: 35rem;
+  }
+  .card:nth-child(4) {
+    height: 15rem;
+  }
+
+  footer {
+    display: block;
+    text-align: center;
+
+    font-family: var(--fonte-secundaria);
+    font-size: 1.4rem;
+    line-height: 2.8rem;
+
+    color: var(--idk-color);
+
+    mix-blend-mode: normal;
+  }
+
+  footer a {
+    text-decoration: none;
+    color: var(--idk-color);
+    font-weight: bold;
+  }
+}
+
+@media (min-width: 1200px) {
+  header h1 {
+    font-size: 4.8rem;
+  }
+
+  .text {
+    max-width: 75%;
+    padding: 0;
+  }
+
+  .text p {
+    font-size: 2.4rem;
+  }
+
+  .desktop {
+    display: block;
+  }
+
+  .content {
+    max-width: 75rem;
+    grid-template-rows: 15rem fit-content(50%);
+    grid-template-columns: 22rem 22rem 22rem;
+  }
+
+  .card:nth-child(3) {
+    grid-row: 2;
+    grid-column: 1;
+  }
+  .card:nth-child(5) {
+    height: 15rem;
+  }
+
+  .card:nth-child(6) {
+    height: 35rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  .content {
+    max-width: fit-content;
+    grid-template-rows: 25rem fit-content(50%);
+    grid-template-columns: 30rem 30rem 30rem;
+  }
+
+  .card:nth-child(1) {
+    height: 25rem;
+  }
+  .card:nth-child(2) {
+    height: 45rem;
+  }
+  .card:nth-child(3) {
+    height: 45rem;
+  }
+  .card:nth-child(4) {
+    height: 25rem;
+  }
+  .card:nth-child(5) {
+    height: 25rem;
+  }
+
+  .card:nth-child(6) {
+    height: 45rem;
   }
 }
